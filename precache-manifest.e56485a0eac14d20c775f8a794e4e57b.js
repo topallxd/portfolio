@@ -8,27 +8,23 @@ self.__precacheManifest = [
     "url": "/portfolio/static/media/dots.da10a58f.svg"
   },
   {
-    "revision": "088a7d1a0662facb5875cf23fed62789",
-    "url": "/portfolio/static/media/cover-iceberg.088a7d1a.jpg"
-  },
-  {
     "revision": "0fad4c0f10d57b530fe4",
     "url": "/portfolio/static/js/runtime~main.0fad4c0f.js"
   },
   {
-    "revision": "ca267868455baa473c5e",
-    "url": "/portfolio/static/js/main.ca267868.chunk.js"
+    "revision": "d912d94b67591a386278",
+    "url": "/portfolio/static/js/main.d912d94b.chunk.js"
   },
   {
-    "revision": "12f1f0dbb7c616486dfb",
-    "url": "/portfolio/static/js/2.12f1f0db.chunk.js"
+    "revision": "3495620ae80ce8d9a720",
+    "url": "/portfolio/static/js/2.3495620a.chunk.js"
   },
   {
-    "revision": "ca267868455baa473c5e",
+    "revision": "d912d94b67591a386278",
     "url": "/portfolio/static/css/main.f2360736.chunk.css"
   },
   {
-    "revision": "9ade84218c98dedc1e9e39d09fbaa625",
+    "revision": "9922c33ee8e7de6b4e67f1142a0fb62d",
     "url": "/portfolio/index.html"
   }
 ];
