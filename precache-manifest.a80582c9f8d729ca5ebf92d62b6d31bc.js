@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/portfolio/static/media/spring-boot-logo.ef53e5e8.svg"
   },
   {
-    "revision": "bf4644890854b86740e8",
+    "revision": "1b561fc8c2f20cdceed2",
     "url": "/portfolio/static/css/main.9e473aeb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/portfolio/static/media/icon.ca6696e0.png"
   },
   {
-    "revision": "bf4644890854b86740e8",
-    "url": "/portfolio/static/js/main.bf464489.chunk.js"
+    "revision": "1b561fc8c2f20cdceed2",
+    "url": "/portfolio/static/js/main.1b561fc8.chunk.js"
   },
   {
     "revision": "3a3f271a4b8e6ec75a4a58654fd7d782",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/portfolio/static/media/dots.da10a58f.svg"
   },
   {
-    "revision": "7b26bce70ef883e9cdf068d50109bcc0",
+    "revision": "3cf73d28f0df24f2caf8061fbd57ad97",
     "url": "/portfolio/index.html"
   }
 ];
