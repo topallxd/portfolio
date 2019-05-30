@@ -1,31 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "ef53e5e8bb9a429b9404bd2eafe5d893",
-    "url": "/portfolio/static/media/spring-boot-logo.ef53e5e8.svg"
+    "revision": "09f388530e8b8b69ec04",
+    "url": "/portfolio/static/css/main.7bcfdfea.chunk.css"
   },
   {
-    "revision": "1b561fc8c2f20cdceed2",
-    "url": "/portfolio/static/css/main.9e473aeb.chunk.css"
+    "revision": "09f388530e8b8b69ec04",
+    "url": "/portfolio/static/js/main.09f38853.chunk.js"
   },
   {
     "revision": "0fad4c0f10d57b530fe4",
     "url": "/portfolio/static/js/runtime~main.0fad4c0f.js"
   },
   {
-    "revision": "63fdd800f63fe76b7cc0",
-    "url": "/portfolio/static/js/2.63fdd800.chunk.js"
+    "revision": "90bdd0062f4d8d21d709",
+    "url": "/portfolio/static/js/2.90bdd006.chunk.js"
   },
   {
     "revision": "ca6696e082dacb40ea24e7e237cff257",
     "url": "/portfolio/static/media/icon.ca6696e0.png"
   },
   {
-    "revision": "1b561fc8c2f20cdceed2",
-    "url": "/portfolio/static/js/main.1b561fc8.chunk.js"
-  },
-  {
-    "revision": "3a3f271a4b8e6ec75a4a58654fd7d782",
-    "url": "/portfolio/static/media/adobe-xd-logo.3a3f271a.png"
+    "revision": "ef53e5e8bb9a429b9404bd2eafe5d893",
+    "url": "/portfolio/static/media/spring-boot-logo.ef53e5e8.svg"
   },
   {
     "revision": "7e3444c72ab7764fcd26db7d1f31b7ad",
@@ -40,7 +36,7 @@ self.__precacheManifest = [
     "url": "/portfolio/static/media/dots.da10a58f.svg"
   },
   {
-    "revision": "3cf73d28f0df24f2caf8061fbd57ad97",
+    "revision": "d55bae18349e74d649bfad0d2dc72cd9",
     "url": "/portfolio/index.html"
   }
 ];
