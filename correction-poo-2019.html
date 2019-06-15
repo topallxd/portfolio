@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Examen POO 2019 - Correction</title>
+  <link rel="icon" href="./icon.png" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/xcode.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+    html,
+    body {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      color: #3c4146;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote {
+      margin-bottom: 10px !important;
+    }
+
+    .strong {
+      font-weight: bold !important;
+    }
+
+    .italic {
+      font-style: italic !important;
+    }
+
+    .dash-list {
+      list-style-type: none !important;
+    }
+
+    .dash-list>li:before {
+      content: "–" !important;
+      position: absolute !important;
+      margin-left: -1.1em !important;
+    }
+
+    a {
+      color: #555 !important;
+      border-bottom: 1px dashed #3c4146 !important;
+      transition: 0.3s !important;
+    }
+
+    a:hover {
+      color: #858d94 !important;
+      border-bottom: 1px dashed #858d94 !important;
+      text-decoration: none !important;
+    }
+
+    blockquote {
+      border-left: 5px solid #a4a4a4 !important;
+      background-color: #f5f5f5 !important;
+      padding: 15px 40px !important;
+      font-style: italic !important;
+    }
+
+    /* img {
+      box-shadow: 4px 4px 4px #ccc !important;
+    } */
+
+    pre {
+      box-shadow: 0 0 3px #ccc !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container p-5">
+    <h2>Correction de <span class="strong">Examen M2.5.2 POO - 14/05/2019</span></h2>
+    <hr />
+    <blockquote class="mb-5">
+      Ceci est une proposition pour l'examen POO 2019 session normale.
+      <br />
+      Vous trouvez <a href="https://drive.google.com/file/d/1384RcQ3qb_rwO-rgbl2AYirHBPMKpBWj/view?usp=sharing" target="_blank">ici</a> l'énoncé et le code source de la proposition.
+    </blockquote>
+    <p class="text-center">
+      <img src="./class_diag.png" alt="Class diagram" class="mb-3" />
+      <br />
+      <span>Diagramme de classe</span>
+    </p>
+    <br />
+    <br />
+    <h6><span class="strong">Q1.</span> Écrire en Java l'interface <span class="strong">Mediator</span> qui expose
+      deux méthodes :</h6>
+    <ul class="dash-list">
+      <li><span class="italic">addBuyer:</span> pour ajouter un nouvel acheteur à la liste</li>
+      <li><span class="italic">findBestBuyer:</span> pour trouver et afficher l'acheteur qui a remporté l'enchère</li>
+    </ul>
+  <pre><code class="java">
+    public interface Mediator { 
+      void addBuyer(Buyer buyer); 
+      void findBestBuyer(); 
+    }
+  </code></pre>
+    <br />
+    <br />
+    <h6><span class="strong">Q2.</span> Écrire en Java la classe <span class="strong">AuctionMediator</span> qui
+      implémente l'interface <span class="strong">Mediator</span> :</h6>
+    <ul class="dash-list">
+      <li>Cette classe maintient la liste des acheteurs</li>
+      <li>L'acheteur qui a remporté l'enchère est celui qui a proposé le meilleur prix</li>
+    </ul>
+    <br />
+    <pre><code class="java">
+      public class AuctionMediator implements Mediator {
+        private List<Buyer> buyers;
+              
+        /* Le constructeur n'est pas demandé.
+         * Vous pouvez faire l'initialisation au niveau de la déclaration du champs.
+         */
+        public AuctionMediator() {
+          // 'ArrayList' ou bien 'LinkedList'.
+          this.buyers = new ArrayList<>();
+        }
+            
+        @Override
+        public void addBuyer(Buyer buyer) {
+          buyers.add(buyer);
+          // Le message n'est pas obligatoire.
+          System.out.printf("%s a ete ajoute a la liste des acheteurs.\n", buyer.getName());
+        }
+            
+        @Override
+        public void findBestBuyer() {
+          // Si jamais la liste est vide, il ne faut rien traiter.
+          if (buyers.isEmpty()) {
+            System.out.println("Aucun acheteur n'est enregistre");
+          } else {
+            // Vous pouvez faire autrement pour trouver celui qui paye le plus.
+            Buyer bestBuyer = buyers.stream().max(Comparator.comparing(Buyer::getPrice)).get();
+            // Le message ici est obligatoire.
+            System.out.printf("Le gagnant est %s. Il a paye %.2fDhs.\n", bestBuyer.getName(), bestBuyer.getPrice());
+          }
+        }
+      }
+    </code></pre>
+    <br />
+    <br />
+    <h6><span class="strong">Q3.</span> Écrire en Java la classe <span class="italic">abstraite</span> <span
+        class="strong">Buyer</span> qui modélise un acheteur :</h6>
+    <ul class="dash-list">
+      <li>Un acheteur est référencé par son nom (name) et le prix (price) qu'il propose aux enchères</li>
+      <li>Un acheteur est aussi associé à un médiateur dés la création. Pensez au constructeur !!</li>
+      <li>
+        Un acheteur a deux options:
+        <ul class="dash-list">
+          <li>participer aux enchères <span class="italic">bid(price)</span></li>
+          <li>annuler sa participation <span class="italic">cancelTheBid()</span></li>
+        </ul>
+      </li>
+    </ul>
+    <br />
+    <pre><code class="java">
+      public abstract class Buyer {
+        // Les champs ici sont déclarés protected, car on aura besoin d'y accéder depuis la classe fille.
+        protected Mediator mediator;
+        protected String name;
+        // Vous pouver utiliser 'int' au lieu de 'double'.
+        protected double price;
+              
+        // Getters non demandés mais vous pouvez les ajouter.
+        public String getName() {
+          return name;
+        }
+            
+        public double getPrice() {
+          return price;
+        }
+            
+        public abstract void bid(double price);
+            
+        public abstract void cancelTheBid();
+      }
+    </code></pre>
+    <br />
+    <br />
+    <h6><span class="strong">Q4.</span> Écrire en Java la classe <span class="strong">AuctionBuyer</span> qui est
+      une implémentation du processus d'appel d'offres vu par l'acheteur :</h6>
+    <ul class="dash-list">
+      <li>L'acheteur participe aux enchères en fixant son <span class="italic">price</span></li>
+      <li>L'acheteur annule sa participation aux enchères en fixant un <span class="italic">price</span> négatif (-1 par
+        exemple)</li>
+    </ul>
+    <br />
+    <pre><code class="java">
+      public class AuctionBuyer extends Buyer {
+        // Constructeur obligatoire.
+        public AuctionBuyer(Mediator mediator, String name) {
+          this.mediator = mediator;
+          this.name = name;
+        }
+            
+        @Override
+        public void bid(double price) {
+          this.price = price;
+        }
+            
+        @Override
+        public void cancelTheBid() {
+          this.price = -1.0;
+        }
+      }
+    </code></pre>
+    <br />
+    <h6>Après exéction du programme suivant:</h6>
+    <br />
+    <pre><code class="java">
+      public class Main {
+        public static void main(String[] args) {
+          Mediator med = new AuctionMediator();
+          Buyer b1 = new AuctionBuyer(med, "Ali");
+          Buyer b2 = new AuctionBuyer(med, "Paul");
+          Buyer b3 = new AuctionBuyer(med, "Ahmed");
+            
+          med.addBuyer(b1); med.addBuyer(b2); med.addBuyer(b3);
+            
+          System.out.println("--------------------------------------");
+          System.out.println("Offre un voyage de 2 jours a Marrakech");
+          System.out.println("En attente des offres des acheteurs...");
+          System.out.println("--------------------------------------");
+            
+          b1.bid(700); b2.bid(900); b3.bid(300);
+          med.findBestBuyer();
+            
+          b2.cancelTheBid();
+            
+          System.out.println(b2.getName() + " a annule son offre, dans ce cas");
+          med.findBestBuyer();
+        }
+      }
+    </code></pre>
+    <br />
+    <p>Le résultat de l'exécution est:</p>
+    <br />
+    <pre><code class="html">
+      Ali a ete ajoute a la liste des acheteurs.
+      Paul a ete ajoute a la liste des acheteurs.
+      Ahmed a ete ajoute a la liste des acheteurs.
+      --------------------------------------
+      Offre un voyage de 2 jours a Marrakech
+      En attente des offres des acheteurs...
+      --------------------------------------
+      Le gagnant est Paul. Il a paye 900.00Dhs.
+      Paul a annule son offre, dans ce cas
+      Le gagnant est Ali. Il a paye 700.00Dhs.
+    </code></pre>
+    <hr/>
+    <p class="text-right">
+      <span class="text-muted">El Mehdi ASSALI</span>
+    </p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>
+    hljs.initHighlighting();
+  </script>
+</body>
+
+</html>
