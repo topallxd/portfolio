@@ -142,9 +142,9 @@ pre {
 </style>
 
 <body>
-
     <div class="container p-5">
         <h1><span class="strong">Rapport technique</span></h1>
+        <h6>Réalisé le <span class="italic">26 Juin 2019</span></h6>
         <hr />
         <br />
         <blockquote>Vous pouvez voir le code source de l'application via ce <a href="https://github.com/assalielmehdi/odd-one-out" target="_blank">lien</a> .</blockquote>
@@ -177,12 +177,16 @@ pre {
         <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/Jwinq9n.jpg" alt="Jeu - Apprentissage"/></p></p>
         <br />
         <h5><span class="strong">Jeu</span></h5>
+        <br />
         <p>Dans cette partie, l'enfant peut commencer à jouer comme décrit dans la partie présentation de l'application.</p>
+        <br />
+        <p>- Figure: <span class="italic">Écran du jeu.</span></p>
+        <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/fedjNKx.jpg" alt="Ecran du jeu"/></p></p>
         <br />
         <p>La gestion du méchanisme <span class="strong">Drag and Drop</span> se fait via la classe <span class="strong">Sprite</span> et des calculs de coordonnés avec une marge de tolérance.</p>
         <p>Le calcul des coordonnés se fait en gardant trace des positions des objets pour pouvoir faire la vérification par la suite.</p>
         <br />
-        <p>- Code: <span class="italic">Initialisation des objets et stockage des positions.</span></p>
+        <p>- Code: <span class="italic">Initialisation des objets avec stockage des positions.</span></p>
 <pre><code class="java">sprites = new CategorizedSprite[]{
   new CategorizedSprite(R.mipmap.banana, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.FOOD),
   new CategorizedSprite(R.mipmap.apple, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.FOOD),
@@ -198,14 +202,57 @@ for (int i = 0, x = interval + DRAGGABLE_WIDTH / 2; i < sprites.length; i++, x +
   sprites[i].setPosition(x, 350 + 150 - DRAGGABLE_HEIGHT);
 }</code></pre>
         <br />
+        <p>Le calcul des positions se fait avec une tolérance pour faciliter le jeu pour l'enfant.</p>
+        <br />
+        <p>- Code: <span class="italic">Vérification si objet est proche d'un panier.</span></p>
+<pre><code class="java">private boolean isNearBox(Sprite box, int spriteId) {
+  int x = sprites[spriteId].getX();
+  int y = sprites[spriteId].getY();
+  return (
+    (x >= box.getX() && x <= box.getX() + box.getWidth() - DRAGGABLE_WIDTH) &&
+    (y <= box.getY() + box.getHeight() - DRAGGABLE_HEIGHT && y >= box.getY() - 100)
+  );
+}</code></pre>
+        <br />
         <h5><span class="strong">Apprentissage</span></h5>
+        <br />
         <p>Dans cette partie, l'enfant peut suivre un tutorial sous forme d'animation illustrant le déroulement d'une partie du jeu avec des explications.</p>
         <br />
+        <p>Le tutorial est sous forme d'animations qui font bouger les objets d'une position à une autre.</p>
+        <p>Les animations sont implémentées par une classe <span class="strong">Animation</span> qui se base sur la notion de <span class="strong">Sprite</span> .</p>
+        <br />
+        <p>- Code: <span class="italic">La classe <span class="strong">Animation</span> .</span></p>
+<pre><code class="java">private class Animation {
+  private Sprite sprite;
+  private int[] from;
+  private int[] to;
+  private double delta;
+  private boolean finished;
+  private boolean good;
+  private AndroidSound sound;
+  private boolean soundFinished;
+  private int soundTime;
+        
+  // ...
+}</code></pre>
+        <br />
+        <p>La gestion des animations se fait par deux files, l'une pour les animations en cours et l'autre utilisée en cas de <span class="italic">replay</span> .</p>
+        <br />
+        <p>- Code: <span class="italic">Initialisation de quelques animations.</span></p>
+<pre><code class="java">// ...
+backup.add(new Animation(sprites[0], spritesInitialPositions[0], spritesFinalPositions[0], 0.02, true, (AndroidSound) game.getAudio().createSound(R.raw.banane_desc), 4 * 44));
+backup.add(new Animation(sprites[1], spritesInitialPositions[1], spritesFinalPositions[2], 0.02, true, (AndroidSound) game.getAudio().createSound(R.raw.pomme_desc), 4 * 44));
+backup.add(new Animation(sprites[2], spritesInitialPositions[2], spritesFinalPositions[1], 0.02, true, (AndroidSound) game.getAudio().createSound(R.raw.bus_desc), 4 * 44));
+backup.add(new Animation(sprites[2], spritesFinalPositions[1], spritesFinalPositions[3], 0.04, true, (AndroidSound) game.getAudio().createSound(R.raw.bus_banane_sep), 5 * 44));
+// ...</code></pre>
+        <br />
         <h5><span class="strong">Gestion des langues</span></h5>
+        <br />
         <p>Le jeu est disponible en trois langues: Français, Anglais et Arabe.</p>
         <p>Le choix de la langue se fait au début du jeu, et tous les textes et sons présentés suivent la langue choisie au début.</p>
         <br />
         <h5><span class="strong">Gestion des sons d'appréciations</span></h5>
+        <br />
         <p>Les sons d'appréciations sont les sons joués quand un événement se produit de la part de l'enfant. Les événement se catégorisent en 3 types:</p>
         <p>- <span class="strong">Excellent</span> : Se produit quand l'enfant réussit à rassembler les objets du même type dés le début sans commaitre d'erreurs.</p>
         <p>- <span class="strong">Bien</span> : Se produit quand l'enfant réussit à rassembler les objets du même type mais aprés avoir commis une erreur.</p>
