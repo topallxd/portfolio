@@ -142,70 +142,71 @@ pre {
 </style>
 
 <body>
-    <div class="container p-5">
-        <h1><span class="strong">Rapport technique</span></h1>
-        <h6>Réalisé le <span class="italic">26 Juin 2019</span></h6>
-        <hr />
-        <br />
-        <blockquote>Vous pouvez voir le code source de l'application via ce <a href="https://github.com/assalielmehdi/odd-one-out" target="_blank">lien</a> .</blockquote>
-        <br />
-        <h3><span class="strong">Présentation de l'application</span></h3>
-        <br />
-        <h5><span class="strong">Id de l'exercice</span> : <span class="italic">T_6_26</span></h5>
-        <br />
-        <h5><span class="strong">Titre de l'exercice</span> : <span class="italic">Odd one out - ماالذي يوجد في غير مكانه</span></h5>
-        <br />
-        <h5><span class="strong">Tranche d'âge</span> : <span class="italic">4 à 5 ans</span></h5>
-        <br />
-        <h5><span class="strong">Description</span></h5>
-        <p>La procédure est de présenter à l’enfant des objets dont un n'appartient pas à la même catégorie des autres. Il faut s’assurer d’abord qu’il reconnaît tous lesobjets. Ensuite, il devra pouvoir rassembler les objets de la même catégorie à part et l'objet intrus dans une autre part.</p>
-        <br />
-        <br />
-        <h3><span class="strong">Réalisation</span></h3>
-        <br />
-        <p>La réalisation du jeu repose sur deux parties: une partie <span class="strong">Apprentissage</span> et une partie <span class="strong">Jeu</span> .</p>
-        <p>Les deux parties sont implementées en utilisant le concept de <span class="strong">Sprite</span> de la bibliothèque <a href="https://github.com/e-mobadara/moblib" target="_blank">e-mobadara 2d-game-lib</a> .</p>
-        <br />
-        <p>Avant d'accéder au menu du jeu, un premier menu proposant l'accés à la partie <span class="strong">Mentor</span> est présenté, où on peut gérer les catégories et les audios.</p>
-        <br />
-        <p>- Figure: <span class="italic">Menu d'accés aux parties <span class="strong">Joueur</span> et <span class="strong">Mentor</span> .</span></p>
-        <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/vLDLMo2.jpg" alt="Jeu - Mentor"/></p></p>
-        <br />
-        <p>La partie détaillée ci-dessous est la partie <span class="strong">Joueur</span> qui elle même est composée de deux parties: <span class="strong">Jeu</span> et <span class="strong">Apprentissage</span> .</p>
-        <br />
-        <p>- Figure: <span class="italic">Menu d'accés aux parties <span class="strong">Jeu</span> et <span class="strong">Apprentissage</span> .</span></p>
-        <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/Jwinq9n.jpg" alt="Jeu - Apprentissage"/></p></p>
-        <br />
-        <h5><span class="strong">Jeu</span></h5>
-        <br />
-        <p>Dans cette partie, l'enfant peut commencer à jouer comme décrit dans la partie présentation de l'application.</p>
-        <br />
-        <p>- Figure: <span class="italic">Écran du jeu.</span></p>
-        <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/fedjNKx.jpg" alt="Ecran du jeu"/></p></p>
-        <br />
-        <p>La gestion du méchanisme <span class="strong">Drag and Drop</span> se fait via la classe <span class="strong">Sprite</span> et des calculs de coordonnés avec une marge de tolérance.</p>
-        <p>Le calcul des coordonnés se fait en gardant trace des positions des objets pour pouvoir faire la vérification par la suite.</p>
-        <br />
-        <p>- Code: <span class="italic">Initialisation des objets avec stockage des positions.</span></p>
-<pre><code class="java">sprites = new CategorizedSprite[]{
+
+  <div class="container p-5">
+    <h1><span class="strong">Rapport technique</span></h1>
+    <h6>Réalisé le <span class="italic">26 Juin 2019</span></h6>
+    <hr />
+    <br />
+    <blockquote>- Vous pouvez voir le code source de l'application via ce <a href="https://github.com/assalielmehdi/odd-one-out" target="_blank">lien</a> .<br>- Une demo du jeu est également accessible via ce <a href="https://drive.google.com/file/d/0B6F0EiedULiZc19KMVBrNk5kZExEcDMxVnUtX3RPN0FNRkxF/view?usp=sharing" target="_blank">lien</a> .</blockquote>
+    <br />
+    <h3><span class="strong">Présentation de l'application</span></h3>
+    <br />
+    <h5><span class="strong">Id de l'exercice</span> : <span class="italic">T_6_26</span></h5>
+    <br />
+    <h5><span class="strong">Titre de l'exercice</span> : <span class="italic">Odd one out - ماالذي يوجد في غير مكانه</span></h5>
+    <br />
+    <h5><span class="strong">Tranche d'âge</span> : <span class="italic">4 à 5 ans</span></h5>
+    <br />
+    <h5><span class="strong">Description</span></h5>
+    <p>La procédure est de présenter à l’enfant des objets dont un n'appartient pas à la même catégorie des autres. Il faut s’assurer d’abord qu’il reconnaît tous lesobjets. Ensuite, il devra pouvoir rassembler les objets de la même catégorie à part et l'objet intrus dans une autre part.</p>
+    <br />
+    <br />
+    <h3><span class="strong">Réalisation</span></h3>
+    <br />
+    <p>La réalisation du jeu repose sur deux parties: une partie <span class="strong">Apprentissage</span> et une partie <span class="strong">Jeu</span> .</p>
+    <p>Les deux parties sont implementées en utilisant le concept de <span class="strong">Sprite</span> de la bibliothèque <a href="https://github.com/e-mobadara/moblib" target="_blank">e-mobadara 2d-game-lib</a> .</p>
+    <br />
+    <p>Avant d'accéder au menu du jeu, un premier menu proposant l'accés à la partie <span class="strong">Mentor</span> est présenté, où on peut gérer les catégories et les audios.</p>
+    <br />
+    <p>- Figure: <span class="italic">Menu d'accés aux parties <span class="strong">Joueur</span> et <span class="strong">Mentor</span> .</span></p>
+    <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/vLDLMo2.jpg" alt="Jeu - Mentor"/></p></p>
+    <br />
+    <p>La partie détaillée ci-dessous est la partie <span class="strong">Joueur</span> qui elle même est composée de deux parties: <span class="strong">Jeu</span> et <span class="strong">Apprentissage</span> .</p>
+    <br />
+    <p>- Figure: <span class="italic">Menu d'accés aux parties <span class="strong">Jeu</span> et <span class="strong">Apprentissage</span> .</span></p>
+    <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/Jwinq9n.jpg" alt="Jeu - Apprentissage"/></p></p>
+    <br />
+    <h5><span class="strong">Jeu</span></h5>
+    <br />
+    <p>Dans cette partie, l'enfant peut commencer à jouer comme décrit dans la partie présentation de l'application.</p>
+    <br />
+    <p>- Figure: <span class="italic">Écran du jeu.</span></p>
+    <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/fedjNKx.jpg" alt="Ecran du jeu"/></p></p>
+    <br />
+    <p>La gestion du méchanisme <span class="strong">Drag and Drop</span> se fait via la classe <span class="strong">Sprite</span> et des calculs de coordonnés avec une marge de tolérance.</p>
+    <p>Le calcul des coordonnés se fait en gardant trace des positions des objets pour pouvoir faire la vérification par la suite.</p>
+    <br />
+    <p>- Code: <span class="italic">Initialisation des objets avec stockage des positions.</span></p>
+    <pre><code class="java">sprites = new CategorizedSprite[]{
   new CategorizedSprite(R.mipmap.banana, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.FOOD),
   new CategorizedSprite(R.mipmap.apple, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.FOOD),
   new CategorizedSprite(R.mipmap.bus, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.TRANSPORT)
 };
-        
+    
 spritesInitialPositions = new int[sprites.length][];
 spritesPositions = new int[sprites.length][];
 interval = (this.game.getScreenWidth() - 3 * DRAGGABLE_WIDTH) / 4;
-        
+    
 for (int i = 0, x = interval + DRAGGABLE_WIDTH / 2; i < sprites.length; i++, x += DRAGGABLE_WIDTH + interval) {
   spritesPositions[i] = spritesInitialPositions[i] = new int[]{x, 350 + 150 - DRAGGABLE_HEIGHT};
   sprites[i].setPosition(x, 350 + 150 - DRAGGABLE_HEIGHT);
 }</code></pre>
-        <br />
-        <p>Le calcul des positions se fait avec une tolérance pour faciliter le jeu pour l'enfant.</p>
-        <br />
-        <p>- Code: <span class="italic">Vérification si objet est proche d'un panier.</span></p>
-<pre><code class="java">private boolean isNearBox(Sprite box, int spriteId) {
+    <br />
+    <p>Le calcul des positions se fait avec une tolérance pour faciliter le jeu pour l'enfant.</p>
+    <br />
+    <p>- Code: <span class="italic">Vérification si objet est proche d'un panier.</span></p>
+    <pre><code class="java">private boolean isNearBox(Sprite box, int spriteId) {
   int x = sprites[spriteId].getX();
   int y = sprites[spriteId].getY();
   return (
@@ -213,16 +214,16 @@ for (int i = 0, x = interval + DRAGGABLE_WIDTH / 2; i < sprites.length; i++, x +
     (y <= box.getY() + box.getHeight() - DRAGGABLE_HEIGHT && y >= box.getY() - 100)
   );
 }</code></pre>
-        <br />
-        <h5><span class="strong">Apprentissage</span></h5>
-        <br />
-        <p>Dans cette partie, l'enfant peut suivre un tutorial sous forme d'animation illustrant le déroulement d'une partie du jeu avec des explications.</p>
-        <br />
-        <p>Le tutorial est sous forme d'animations qui font bouger les objets d'une position à une autre.</p>
-        <p>Les animations sont implémentées par une classe <span class="strong">Animation</span> qui se base sur la notion de <span class="strong">Sprite</span> .</p>
-        <br />
-        <p>- Code: <span class="italic">La classe <span class="strong">Animation</span> .</span></p>
-<pre><code class="java">private class Animation {
+    <br />
+    <h5><span class="strong">Apprentissage</span></h5>
+    <br />
+    <p>Dans cette partie, l'enfant peut suivre un tutorial sous forme d'animation illustrant le déroulement d'une partie du jeu avec des explications.</p>
+    <br />
+    <p>Le tutorial est sous forme d'animations qui font bouger les objets d'une position à une autre.</p>
+    <p>Les animations sont implémentées par une classe <span class="strong">Animation</span> qui se base sur la notion de <span class="strong">Sprite</span> .</p>
+    <br />
+    <p>- Code: <span class="italic">La classe <span class="strong">Animation</span> .</span></p>
+    <pre><code class="java">private class Animation {
   private Sprite sprite;
   private int[] from;
   private int[] to;
@@ -232,35 +233,37 @@ for (int i = 0, x = interval + DRAGGABLE_WIDTH / 2; i < sprites.length; i++, x +
   private AndroidSound sound;
   private boolean soundFinished;
   private int soundTime;
-        
+      
   // ...
 }</code></pre>
-        <br />
-        <p>La gestion des animations se fait par deux files, l'une pour les animations en cours et l'autre utilisée en cas de <span class="italic">replay</span> .</p>
-        <br />
-        <p>- Code: <span class="italic">Initialisation de quelques animations.</span></p>
-<pre><code class="java">// ...
+    <br />
+    <p>La gestion des animations se fait par deux files, l'une pour les animations en cours et l'autre utilisée en cas de <span class="italic">replay</span> .</p>
+    <br />
+    <p>- Code: <span class="italic">Initialisation de quelques animations.</span></p>
+    <pre><code class="java">// ...
 backup.add(new Animation(sprites[0], spritesInitialPositions[0], spritesFinalPositions[0], 0.02, true, (AndroidSound) game.getAudio().createSound(R.raw.banane_desc), 4 * 44));
 backup.add(new Animation(sprites[1], spritesInitialPositions[1], spritesFinalPositions[2], 0.02, true, (AndroidSound) game.getAudio().createSound(R.raw.pomme_desc), 4 * 44));
 backup.add(new Animation(sprites[2], spritesInitialPositions[2], spritesFinalPositions[1], 0.02, true, (AndroidSound) game.getAudio().createSound(R.raw.bus_desc), 4 * 44));
 backup.add(new Animation(sprites[2], spritesFinalPositions[1], spritesFinalPositions[3], 0.04, true, (AndroidSound) game.getAudio().createSound(R.raw.bus_banane_sep), 5 * 44));
 // ...</code></pre>
-        <br />
-        <h5><span class="strong">Gestion des langues</span></h5>
-        <br />
-        <p>Le jeu est disponible en trois langues: Français, Anglais et Arabe.</p>
-        <p>Le choix de la langue se fait au début du jeu, et tous les textes et sons présentés suivent la langue choisie au début.</p>
-        <br />
-        <h5><span class="strong">Gestion des sons d'appréciations</span></h5>
-        <br />
-        <p>Les sons d'appréciations sont les sons joués quand un événement se produit de la part de l'enfant. Les événement se catégorisent en 3 types:</p>
-        <p>- <span class="strong">Excellent</span> : Se produit quand l'enfant réussit à rassembler les objets du même type dés le début sans commaitre d'erreurs.</p>
-        <p>- <span class="strong">Bien</span> : Se produit quand l'enfant réussit à rassembler les objets du même type mais aprés avoir commis une erreur.</p>
-        <p>- <span class="strong">Encouragement</span> : Se produit quand l'enfant ne réussit pas à rassembler les objets du même type.</p>
-        <p>Chaque type d'événement peut avoir plusieurs sons et seul l'un d'eux est choisi aléatoirement, et ceci pour chaque langue.</p>
-        <p>La gestion des sons d'appréciations est implémenté en utilisant la bibliothèque <span class="strong">e-mobadara AudioManagingModule</span> .</p>
-        <p>Example: Jouer un son d'appréciation de type <span class="strong">Excellent</span> en <span class="strong">français</span></p>
-<pre><code class="java">private void playExcellentSound() {
+    <br />
+    <h5><span class="strong">Gestion des langues</span></h5>
+    <br />
+    <p>Le jeu est disponible en trois langues: Français, Anglais et Arabe.</p>
+    <p>Le choix de la langue se fait au début du jeu, et tous les textes et sons présentés suivent la langue choisie au début.</p>
+    <br />
+    <h5><span class="strong">Gestion des sons d'appréciations</span></h5>
+    <br />
+    <p>Les sons d'appréciations sont les sons joués quand un événement se produit de la part de l'enfant. Les événement se catégorisent en 3 types:</p>
+    <p>- <span class="strong">Excellent</span> : Se produit quand l'enfant réussit à rassembler les objets du même type dés le début sans commaitre d'erreurs.</p>
+    <p>- <span class="strong">Bien</span> : Se produit quand l'enfant réussit à rassembler les objets du même type mais aprés avoir commis une erreur.</p>
+    <p>- <span class="strong">Encouragement</span> : Se produit quand l'enfant ne réussit pas à rassembler les objets du même type.</p>
+    <br />
+    <p>Chaque type d'événement peut avoir plusieurs sons et seul l'un d'eux est choisi aléatoirement, et ceci pour chaque langue.</p>
+    <p>La gestion des sons d'appréciations est implémenté en utilisant la bibliothèque <span class="strong">e-mobadara AudioManagingModule</span> .</p>
+    <br />
+    <p>- Code: <span class="italic">Jouer un son d'appréciation de type <span class="strong">Excellent</span> en <span class="strong">français</span> .</span></p>
+    <pre><code class="java">private void playExcellentSound() {
   MediaPlayer mediaPlayer = moblibAudioFileManager.getRandomAudioFile(getApplicationContext(), "excellent", "FR");
   if (mediaPlayer == null) {
     mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.excellent_fr);
@@ -268,14 +271,52 @@ backup.add(new Animation(sprites[2], spritesFinalPositions[1], spritesFinalPosit
   mediaPlayer.setVolume(1, 1);
   mediaPlayer.start();
 }</code></pre>
-        <br />
-        <h5><span class="strong">Gestion des catégories</span></h5>
-        <br />
-        <h5><span class="strong">Gestion des statistiques du jeu</span></h5>
-        <br />
-        <br />
-        <h3><span class="strong">Perspectives</span></h3>
-        </div>
+    <br />
+    <h5><span class="strong">Gestion des catégories</span></h5>
+    <br />
+    <h5><span class="strong">Gestion des statistiques du jeu</span></h5>
+    <br />
+    <p>L'une des parties les plus importantes dans le jeu est le calcul des statistiques du jeu et leur stockage dans la base de données centralisée.</p>
+    <p>Le calcul se fait au niveau du jeu, et le stockage se fait via la classe <span class="strong">GameStat</span> .</p>
+    <br />
+    <p>- Code: <span class="italic">Création d'une instance de <span class="strong">GameStat</span> et remplissage de quelques stats.</span></p>
+    <pre><code class="java">// ...
+private GameStat gameStat;
+private GpsTracker gpsTracker;
+    
+// ...
+gameStat = new GameStat();
+gameStat.setApp_id("2019_1_6_2");
+gameStat.setExercise_id("T_6_26");
+gameStat.setCreated_at(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(Calendar.getInstance().getTime()));
+    
+gpsTracker = new GpsTracker(getApplicationContext());
+if (gpsTracker.canGetLocation()) {
+  double latitude = gpsTracker.getLatitude();
+  double longitude = gpsTracker.getLongitude();
+  gameStat.setLatitude(String.valueOf(latitude));
+  gameStat.setLongitude(String.valueOf(longitude));
+} else {
+  gpsTracker.showSettingsAlert();
+}
+// ...</code></pre>
+    <br />
+    <p>- Code: <span class="italic">Calcul de quelques stats et leur stockage dans la base de données</span></p>
+<pre><code class="java">// ...
+private int failedAttempts = 0;
+private long startTime = System.currentTimeMillis();
+    
+// ...
+gameStat.setUpdated_at(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(Calendar.getInstance().getTime()));
+gameStat.setFailed_attempts(String.valueOf(failedAttempts));
+double time = (System.currentTimeMillis() - startTime) / 1000.0;
+gameStat.setMin_time_succeed_sec(time +  "sec");
+FoxyAuth.storeGameStat(getApplication(), gameStat);
+// ...</code></pre>
+    <br />
+    <br />
+    <h3><span class="strong">Perspectives</span></h3>
+    </div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
