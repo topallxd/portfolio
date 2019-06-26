@@ -247,7 +247,7 @@ backup.add(new Animation(sprites[2], spritesInitialPositions[2], spritesFinalPos
 backup.add(new Animation(sprites[2], spritesFinalPositions[1], spritesFinalPositions[3], 0.04, true, (AndroidSound) game.getAudio().createSound(R.raw.bus_banane_sep), 5 * 44));
 // ...</code></pre>
     <br />
-    <h5><span class="strong">Gestion des langues</span></h5>
+    <h5><span class="strong">Gestion des langues</span> (non implementé)</h5>
     <br />
     <p>Le jeu est disponible en trois langues: Français, Anglais et Arabe.</p>
     <p>Le choix de la langue se fait au début du jeu, et tous les textes et sons présentés suivent la langue choisie au début.</p>
@@ -255,9 +255,13 @@ backup.add(new Animation(sprites[2], spritesFinalPositions[1], spritesFinalPosit
     <h5><span class="strong">Gestion des sons d'appréciations</span></h5>
     <br />
     <p>Les sons d'appréciations sont les sons joués quand un événement se produit de la part de l'enfant. Les événement se catégorisent en 3 types:</p>
-    <p>- <span class="strong">Excellent</span> : Se produit quand l'enfant réussit à rassembler les objets du même type dés le début sans commaitre d'erreurs.</p>
-    <p>- <span class="strong">Bien</span> : Se produit quand l'enfant réussit à rassembler les objets du même type mais aprés avoir commis une erreur.</p>
-    <p>- <span class="strong">Encouragement</span> : Se produit quand l'enfant ne réussit pas à rassembler les objets du même type.</p>
+    <p>
+      <ul class="dash-list">
+        <li><span class="strong">Excellent</span> : Se produit quand l'enfant réussit à rassembler les objets du même type dés le début sans commaitre d'erreurs.</li>
+        <li><span class="strong">Bien</span> : Se produit quand l'enfant réussit à rassembler les objets du même type mais aprés avoir commis une erreur.</li>
+        <li><span class="strong">Encouragement</span> : Se produit quand l'enfant ne réussit pas à rassembler les objets du même type.</li>
+      </ul>
+    </p>
     <br />
     <p>Chaque type d'événement peut avoir plusieurs sons et seul l'un d'eux est choisi aléatoirement, et ceci pour chaque langue.</p>
     <p>La gestion des sons d'appréciations est implémenté en utilisant la bibliothèque <span class="strong">e-mobadara AudioManagingModule</span> .</p>
@@ -272,7 +276,7 @@ backup.add(new Animation(sprites[2], spritesFinalPositions[1], spritesFinalPosit
   mediaPlayer.start();
 }</code></pre>
     <br />
-    <h5><span class="strong">Gestion des catégories</span></h5>
+    <h5><span class="strong">Gestion des catégories</span> (non implementé)</h5>
     <br />
     <h5><span class="strong">Gestion des statistiques du jeu</span></h5>
     <br />
@@ -316,6 +320,17 @@ FoxyAuth.storeGameStat(getApplication(), gameStat);
     <br />
     <br />
     <h3><span class="strong">Perspectives</span></h3>
+    </br>
+      <ul class="dash-list">
+        <li>Intégration des catégories paramétrables à partir de l'espace <span class="strong">Mentor</span></li>
+        <li>Intégration des langues: Français et Arabe.</li>
+        <li>Une meilleure gestion de la géolocalisation</li>
+        <li>Réduction de la taille de l'application</li>
+        <li>Gestion des tailles des périphériques</li>
+        <li>Refactoring du code source</li>
+      </ul>
+      <hr />
+      <h6 class="text-right text-muted">El Mehdi ASSALI</h6>
     </div>
 
 
