@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Odd One Out - Rapport technique</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/xcode.min.css">
+</head>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+html,
+body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: #3c4146;
+  line-height: 1.5;
+}
+
+#main {
+  height: 99%;
+  width: 100%;
+  margin: 0;
+}
+
+#editor-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  padding: 10px;
+  border-right: 1px solid #dfdfdf;
+  line-height: 1.2 !important;
+}
+
+#output {
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+  margin-bottom: 10px !important;
+}
+
+.strong {
+  font-weight: bold !important;
+}
+
+.italic {
+  font-style: italic !important;
+}
+
+.strikethrough {
+  text-decoration: line-through !important;
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+.dash-list {
+  list-style-type: none !important;
+}
+
+.dash-list>li:before {
+  content: "–" !important;
+  position: absolute !important;
+  margin-left: -1.1em !important;
+}
+
+a {
+  color: #555 !important;
+  border-bottom: 1px dashed #3c4146 !important;
+  transition: 0.3s !important;
+}
+
+a:hover {
+  color: #858d94 !important;
+  border-bottom: 1px dashed #858d94 !important;
+  text-decoration: none !important;
+}
+
+blockquote {
+  padding: 15px !important;
+  border-left: 5px solid #a4a4a4 !important;
+  background-color: #f5f5f5 !important;
+  position: relative;
+  padding: 15px 42px !important;
+  font-style: italic !important;
+}
+
+blockquote::before {
+  content: "" !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 10px;
+  margin-top: 0 !important;
+  color: #a4a4a4;
+  font-size: 54px;
+  font-style: normal !important;
+}
+
+blockquote:after {
+  content: "" !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  margin-top: 0 !important;
+  color: #a4a4a4;
+  font-size: 54px;
+  font-style: normal !important;
+}
+
+.table {
+  color: #3c4146 !important;
+}
+
+.table th {
+  font-weight: normal !important;
+}
+
+img {
+  box-shadow: 4px 4px 4px #ccc !important;
+}
+
+pre {
+  box-shadow: 0 0 3px #ccc !important;
+}
+</style>
+
+<body>
+
+    <div class="container p-5">
+        <h1><span class="strong">Rapport technique</span></h1>
+        <hr />
+        <br />
+        <blockquote>Vous pouvez voir le code source de l'application via ce <a href="https://github.com/assalielmehdi/odd-one-out" target="_blank">lien</a> .</blockquote>
+        <br />
+        <h3><span class="strong">Présentation de l'application</span></h3>
+        <br />
+        <h5><span class="strong">Id de l'exercice</span> : <span class="italic">T_6_26</span></h5>
+        <br />
+        <h5><span class="strong">Titre de l'exercice</span> : <span class="italic">Odd one out - ماالذي يوجد في غير مكانه</span></h5>
+        <br />
+        <h5><span class="strong">Tranche d'âge</span> : <span class="italic">4 à 5 ans</span></h5>
+        <br />
+        <h5><span class="strong">Description</span></h5>
+        <p>La procédure est de présenter à l’enfant des objets dont un n'appartient pas à la même catégorie des autres. Il faut s’assurer d’abord qu’il reconnaît tous lesobjets. Ensuite, il devra pouvoir rassembler les objets de la même catégorie à part et l'objet intrus dans une autre part.</p>
+        <br />
+        <br />
+        <h3><span class="strong">Réalisation</span></h3>
+        <br />
+        <p>La réalisation du jeu repose sur deux parties: une partie <span class="strong">Apprentissage</span> et une partie <span class="strong">Jeu</span> .</p>
+        <p>Les deux parties sont implementées en utilisant le concept de <span class="strong">Sprite</span> de la bibliothèque <a href="https://github.com/e-mobadara/moblib" target="_blank">e-mobadara 2d-game-lib</a> .</p>
+        <br />
+        <p>Avant d'accéder au menu du jeu, un premier menu proposant l'accés à la partie <span class="strong">Mentor</span> est présenté, où on peut gérer les catégories et les audios.</p>
+        <br />
+        <p>- Figure: <span class="italic">Menu d'accés aux parties <span class="strong">Joueur</span> et <span class="strong">Mentor</span> .</span></p>
+        <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/vLDLMo2.jpg" alt="Jeu - Mentor"/></p></p>
+        <br />
+        <p>La partie détaillée ci-dessous est la partie <span class="strong">Joueur</span> qui elle même est composée de deux parties: <span class="strong">Jeu</span> et <span class="strong">Apprentissage</span> .</p>
+        <br />
+        <p>- Figure: <span class="italic">Menu d'accés aux parties <span class="strong">Jeu</span> et <span class="strong">Apprentissage</span> .</span></p>
+        <p><p class="text-center"><img class="img-fluid" src="https://i.imgur.com/Jwinq9n.jpg" alt="Jeu - Apprentissage"/></p></p>
+        <br />
+        <h5><span class="strong">Jeu</span></h5>
+        <p>Dans cette partie, l'enfant peut commencer à jouer comme décrit dans la partie présentation de l'application.</p>
+        <br />
+        <p>La gestion du méchanisme <span class="strong">Drag and Drop</span> se fait via la classe <span class="strong">Sprite</span> et des calculs de coordonnés avec une marge de tolérance.</p>
+        <p>Le calcul des coordonnés se fait en gardant trace des positions des objets pour pouvoir faire la vérification par la suite.</p>
+        <br />
+        <p>- Code: <span class="italic">Initialisation des objets et stockage des positions.</span></p>
+<pre><code class="java">sprites = new CategorizedSprite[]{
+  new CategorizedSprite(R.mipmap.banana, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.FOOD),
+  new CategorizedSprite(R.mipmap.apple, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.FOOD),
+  new CategorizedSprite(R.mipmap.bus, game, 0, 0, DRAGGABLE_WIDTH, DRAGGABLE_HEIGHT, CategorizedSprite.Category.TRANSPORT)
+};
+        
+spritesInitialPositions = new int[sprites.length][];
+spritesPositions = new int[sprites.length][];
+interval = (this.game.getScreenWidth() - 3 * DRAGGABLE_WIDTH) / 4;
+        
+for (int i = 0, x = interval + DRAGGABLE_WIDTH / 2; i < sprites.length; i++, x += DRAGGABLE_WIDTH + interval) {
+  spritesPositions[i] = spritesInitialPositions[i] = new int[]{x, 350 + 150 - DRAGGABLE_HEIGHT};
+  sprites[i].setPosition(x, 350 + 150 - DRAGGABLE_HEIGHT);
+}</code></pre>
+        <br />
+        <h5><span class="strong">Apprentissage</span></h5>
+        <p>Dans cette partie, l'enfant peut suivre un tutorial sous forme d'animation illustrant le déroulement d'une partie du jeu avec des explications.</p>
+        <br />
+        <h5><span class="strong">Gestion des langues</span></h5>
+        <p>Le jeu est disponible en trois langues: Français, Anglais et Arabe.</p>
+        <p>Le choix de la langue se fait au début du jeu, et tous les textes et sons présentés suivent la langue choisie au début.</p>
+        <br />
+        <h5><span class="strong">Gestion des sons d'appréciations</span></h5>
+        <p>Les sons d'appréciations sont les sons joués quand un événement se produit de la part de l'enfant. Les événement se catégorisent en 3 types:</p>
+        <p>- <span class="strong">Excellent</span> : Se produit quand l'enfant réussit à rassembler les objets du même type dés le début sans commaitre d'erreurs.</p>
+        <p>- <span class="strong">Bien</span> : Se produit quand l'enfant réussit à rassembler les objets du même type mais aprés avoir commis une erreur.</p>
+        <p>- <span class="strong">Encouragement</span> : Se produit quand l'enfant ne réussit pas à rassembler les objets du même type.</p>
+        <p>Chaque type d'événement peut avoir plusieurs sons et seul l'un d'eux est choisi aléatoirement, et ceci pour chaque langue.</p>
+        <p>La gestion des sons d'appréciations est implémenté en utilisant la bibliothèque <span class="strong">e-mobadara AudioManagingModule</span> .</p>
+        <p>Example: Jouer un son d'appréciation de type <span class="strong">Excellent</span> en <span class="strong">français</span></p>
+<pre><code class="java">private void playExcellentSound() {
+  MediaPlayer mediaPlayer = moblibAudioFileManager.getRandomAudioFile(getApplicationContext(), "excellent", "FR");
+  if (mediaPlayer == null) {
+    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.excellent_fr);
+  }
+  mediaPlayer.setVolume(1, 1);
+  mediaPlayer.start();
+}</code></pre>
+        <br />
+        <h5><span class="strong">Gestion des catégories</span></h5>
+        <br />
+        <h5><span class="strong">Gestion des statistiques du jeu</span></h5>
+        <br />
+        <br />
+        <h3><span class="strong">Perspectives</span></h3>
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script>
+$(() => {
+hljs.initHighlighting();
+$("img").css("height", "480px");
+});
+</script>
+
+
+
+</body></html>
